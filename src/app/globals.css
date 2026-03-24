@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: #1B2A4A;
+    --cream: #F5F0EB;
+    --gold: #C9A96E;
+    --obsidian: #0A0A0A;
+    --cool-gray: #8A8A8A;
+  }
+
+  /* Hide default cursor on desktop only */
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #F5F0EB;
+    color: #0A0A0A;
+    overflow-x: hidden;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #F5F0EB; }
+  ::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #1B2A4A; }
+
+  /* Text selection */
+  ::selection {
+    background-color: #C9A96E;
+    color: #F5F0EB;
+  }
+
+  /* Focus visible — keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #C9A96E;
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+
+  /* Word reveal clip animation */
+  .word-clip {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  /* Smooth image reveal */
+  .img-reveal {
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+
+  /* Gold gradient text */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #C9A96E 0%, #E8C98A 50%, #C9A96E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Container with generous padding */
+  .container-site {
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-site {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-site {
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  /* Section padding */
+  .section-py {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-py {
+      padding-top: 10rem;
+      padding-bottom: 10rem;
+    }
+  }
+
+  /* Hover underline effect */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+/* GSAP initial states (prevent flash before animations) */
+.gsap-init-hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gsap-init-scale {
+  opacity: 0;
+  transform: scale(0.95);
+}
