@@ -1,12 +1,13 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface LogoMVProps {
   className?: string;
   height?: number;
   linkWrapper?: boolean;
-  /** dark = blanco sobre transparente (para navbar/footer navy), light = navy sobre transparente (para fondo claro) */
   variant?: "dark" | "light";
 }
 
@@ -95,7 +96,21 @@ function LogoSVG({ height, variant = "dark" }: { height: number; variant?: "dark
 }
 
 export default function LogoMV({ className, height = 52, linkWrapper = true, variant = "dark" }: LogoMVProps) {
-  const content = (
+  const [usePNG, setUsePNG] = useState(true);
+
+  // If PNG is transparent and loads fine, use it. Otherwise fallback to SVG.
+  const content = usePNG ? (
+    <Image
+      src="/logo-mv.png"
+      alt="María Victoria Real Estate"
+      height={height}
+      width={height * 3.5}
+      priority
+      className={className}
+      style={{ height: `${height}px`, width: "auto", objectFit: "contain" }}
+      onError={() => setUsePNG(false)}
+    />
+  ) : (
     <span className={className}>
       <LogoSVG height={height} variant={variant} />
     </span>
