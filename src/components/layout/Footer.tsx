@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pb-12 border-b border-cream/10">
           {/* Brand */}
           <div className="space-y-5">
-            <LogoMV height={48} />
+            <LogoMV height={80} />
             <p className="font-sans text-sm leading-relaxed text-cream/50 max-w-xs">
               Especialista en real estate y fotógrafa profesional. Zona oeste y norte de Buenos Aires.
             </p>

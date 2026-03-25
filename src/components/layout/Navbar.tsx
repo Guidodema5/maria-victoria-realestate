@@ -40,13 +40,13 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-400",
           scrolled
-            ? "bg-navy shadow-[0_2px_20px_rgba(0,0,0,0.3)] py-3"
-            : "bg-navy/90 backdrop-blur-md py-5"
+            ? "bg-navy shadow-[0_2px_20px_rgba(0,0,0,0.3)] py-2"
+            : "bg-navy/90 backdrop-blur-md py-3"
         )}
       >
         <div className="container-site flex items-center justify-between">
           {/* Logo */}
-          <LogoMV height={56} />
+          <LogoMV height={88} />
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
