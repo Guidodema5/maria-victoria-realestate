@@ -13,7 +13,7 @@ export default function LogoColdwell({ height = 48, className }: LogoColdwellPro
       height={height}
       width={height * 3}
       className={className}
-      style={{ objectFit: "contain", width: "auto" }}
+      style={{ height: `${height}px`, width: "auto", objectFit: "contain" }}
     />
   );
 }

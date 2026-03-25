@@ -13,7 +13,7 @@ interface LogoMVProps {
 function LogoSVG({ height, variant = "dark" }: { height: number; variant?: "dark" | "light" }) {
   const textColor = variant === "dark" ? "#F5F0EB" : "#1B2A4A";
   const gold = "#C9A96E";
-  const w = height * 3.2;
+  const w = height * 5.5;
 
   return (
     <svg
@@ -25,41 +25,44 @@ function LogoSVG({ height, variant = "dark" }: { height: number; variant?: "dark
       aria-label="María Victoria Real Estate"
       role="img"
     >
-      {/* Roof icon */}
+      {/* Double-peak roof icon — matches actual logo */}
+      {/* Back roof peak (smaller, offset right) */}
       <polyline
-        points={`${height * 0.28},${height * 0.45} ${height * 0.5},${height * 0.18} ${height * 0.72},${height * 0.45}`}
-        stroke={gold}
-        strokeWidth={height * 0.045}
+        points={`${height * 0.32},${height * 0.52} ${height * 0.54},${height * 0.22} ${height * 0.76},${height * 0.52}`}
+        stroke={textColor}
+        strokeWidth={height * 0.038}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
+        opacity="0.45"
+      />
+      {/* Front roof peak (main, wider) */}
+      <polyline
+        points={`${height * 0.14},${height * 0.58} ${height * 0.44},${height * 0.20} ${height * 0.74},${height * 0.58}`}
+        stroke={textColor}
+        strokeWidth={height * 0.042}
         strokeLinecap="round"
         strokeLinejoin="round"
         fill="none"
       />
+      {/* Horizontal base line */}
       <line
-        x1={height * 0.35}
-        y1={height * 0.45}
-        x2={height * 0.35}
-        y2={height * 0.68}
-        stroke={gold}
-        strokeWidth={height * 0.04}
+        x1={height * 0.14}
+        y1={height * 0.58}
+        x2={height * 0.76}
+        y2={height * 0.58}
+        stroke={textColor}
+        strokeWidth={height * 0.038}
         strokeLinecap="round"
       />
-      <line
-        x1={height * 0.65}
-        y1={height * 0.45}
-        x2={height * 0.65}
-        y2={height * 0.68}
-        stroke={gold}
-        strokeWidth={height * 0.04}
-        strokeLinecap="round"
-      />
-      <line
-        x1={height * 0.28}
-        y1={height * 0.68}
-        x2={height * 0.72}
-        y2={height * 0.68}
-        stroke={gold}
-        strokeWidth={height * 0.04}
-        strokeLinecap="round"
+      {/* Small chimney */}
+      <rect
+        x={height * 0.38}
+        y={height * 0.10}
+        width={height * 0.075}
+        height={height * 0.12}
+        fill={textColor}
+        rx={height * 0.01}
       />
 
       {/* MARIA VICTORIA */}

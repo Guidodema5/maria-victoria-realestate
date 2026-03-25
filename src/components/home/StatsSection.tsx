@@ -42,7 +42,7 @@ export default function StatsSection() {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="stat-item opacity-0 flex flex-col items-center justify-center py-8 px-4 md:px-8 text-center"
+              className="stat-item opacity-0 flex flex-col items-center justify-center py-6 px-4 md:px-8 text-center"
             >
               <span
                 className="font-serif text-gold leading-none"

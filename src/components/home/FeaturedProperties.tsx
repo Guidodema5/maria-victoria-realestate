@@ -66,7 +66,7 @@ export default function FeaturedProperties({ properties }: FeaturedPropertiesPro
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="section-py bg-cream">
+    <section ref={containerRef} className="py-16 md:py-20 bg-cream">
       <div className="container-site">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 md:mb-16">
