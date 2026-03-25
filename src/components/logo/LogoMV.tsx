@@ -100,29 +100,23 @@ export default function LogoMV({ className, height = 52, linkWrapper = true, var
 
   // If PNG is transparent and loads fine, use it. Otherwise fallback to SVG.
   const content = usePNG ? (
-    <span className={`inline-flex items-center gap-3 ${className ?? ""}`}>
-      {/* PNG icon — square logo */}
+    <span className={`inline-flex items-center gap-2.5 ${className ?? ""}`}>
+      {/* PNG icon — compact */}
       <Image
         src="/logo-mv.png"
-        alt="María Victoria Real Estate"
-        height={height}
-        width={height}
+        alt=""
+        height={height * 0.75}
+        width={height * 0.75}
         priority
-        style={{ height: `${height}px`, width: `${height}px`, objectFit: "contain", flexShrink: 0 }}
+        style={{ height: `${height * 0.75}px`, width: `${height * 0.75}px`, objectFit: "contain", flexShrink: 0, opacity: 0.92 }}
         onError={() => setUsePNG(false)}
       />
-      {/* Text alongside icon */}
-      <span className="flex flex-col leading-none select-none">
-        <span
-          className="font-serif text-cream tracking-[0.1em] uppercase"
-          style={{ fontSize: height * 0.28, letterSpacing: "0.12em" }}
-        >
+      {/* Text — fixed sizes for readability regardless of height */}
+      <span className="flex flex-col leading-none select-none gap-0.5">
+        <span className="font-serif text-cream tracking-[0.13em] uppercase" style={{ fontSize: 17 }}>
           Maria Victoria
         </span>
-        <span
-          className="font-sans text-gold tracking-[0.22em] uppercase"
-          style={{ fontSize: height * 0.18 }}
-        >
+        <span className="font-sans text-gold tracking-[0.26em] uppercase" style={{ fontSize: 10 }}>
           real estate
         </span>
       </span>
