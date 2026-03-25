@@ -16,6 +16,13 @@
     *, *::before, *::after {
       cursor: none !important;
     }
+    /* Restore cursor in admin panel */
+    .admin-layout, .admin-layout *, .admin-layout *::before, .admin-layout *::after {
+      cursor: auto !important;
+    }
+    .admin-layout a, .admin-layout button, .admin-layout [role="button"] {
+      cursor: pointer !important;
+    }
   }
 
   html {

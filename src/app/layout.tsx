@@ -80,7 +80,7 @@ const jsonLd = {
       description:
         "Especialista en real estate premium y dirección fotográfica. Zona norte y oeste de Buenos Aires.",
       url: siteUrl,
-      telephone: "+5491144709617",
+      telephone: "+5491133616566",
       image: `${siteUrl}/maria-victoria.jpg`,
       logo: `${siteUrl}/logo-mv.png`,
       address: {

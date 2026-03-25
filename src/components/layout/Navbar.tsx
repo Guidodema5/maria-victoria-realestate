@@ -46,7 +46,7 @@ export default function Navbar() {
       >
         <div className="container-site flex items-center justify-between">
           {/* Logo */}
-          <LogoMV height={88} />
+          <LogoMV height={112} />
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
@@ -73,7 +73,7 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <a
-            href="https://wa.me/5491144709617"
+            href="https://wa.me/5491133616566"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 border border-gold/40 text-gold font-sans text-[11px] tracking-[0.12em] uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
@@ -124,7 +124,7 @@ export default function Navbar() {
                 transition={{ delay: 0.32, duration: 0.4 }}
               >
                 <a
-                  href="https://wa.me/5491144709617"
+                  href="https://wa.me/5491133616566"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-3 bg-gold text-obsidian font-sans text-xs font-semibold tracking-[0.12em] uppercase mt-4"
