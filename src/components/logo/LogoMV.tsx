@@ -100,16 +100,33 @@ export default function LogoMV({ className, height = 52, linkWrapper = true, var
 
   // If PNG is transparent and loads fine, use it. Otherwise fallback to SVG.
   const content = usePNG ? (
-    <Image
-      src="/logo-mv.png"
-      alt="María Victoria Real Estate"
-      height={height}
-      width={height}
-      priority
-      className={className}
-      style={{ height: `${height}px`, width: `${height}px`, objectFit: "contain" }}
-      onError={() => setUsePNG(false)}
-    />
+    <span className={`inline-flex items-center gap-3 ${className ?? ""}`}>
+      {/* PNG icon — square logo */}
+      <Image
+        src="/logo-mv.png"
+        alt="María Victoria Real Estate"
+        height={height}
+        width={height}
+        priority
+        style={{ height: `${height}px`, width: `${height}px`, objectFit: "contain", flexShrink: 0 }}
+        onError={() => setUsePNG(false)}
+      />
+      {/* Text alongside icon */}
+      <span className="flex flex-col leading-none select-none">
+        <span
+          className="font-serif text-cream tracking-[0.1em] uppercase"
+          style={{ fontSize: height * 0.28, letterSpacing: "0.12em" }}
+        >
+          Maria Victoria
+        </span>
+        <span
+          className="font-sans text-gold tracking-[0.22em] uppercase"
+          style={{ fontSize: height * 0.18 }}
+        >
+          real estate
+        </span>
+      </span>
+    </span>
   ) : (
     <span className={className}>
       <LogoSVG height={height} variant={variant} />

@@ -49,7 +49,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end">
-        <div className="container-site pb-12 md:pb-16 lg:pb-20">
+        <div className="container-site pt-24 pb-10 md:pb-14 lg:pb-16" style={{ maxHeight: 'calc(100svh - 80px)', overflow: 'hidden' }}>
           <div className="max-w-lg lg:max-w-2xl">
 
             {/* Tag */}
@@ -63,7 +63,7 @@ export default function HeroSection() {
             {/* Title */}
             <h1
               className="hero-title font-serif text-cream opacity-0 mb-4"
-              style={{ fontSize: "clamp(2rem, 5vw, 4.2rem)", lineHeight: 1.08 }}
+              style={{ fontSize: "clamp(1.7rem, 3.8vw, 3.6rem)", lineHeight: 1.1 }}
             >
               El valor de una propiedad<br />
               <span className="text-gold italic">está en cómo se percibe.</span>
