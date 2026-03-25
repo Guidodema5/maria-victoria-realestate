@@ -104,10 +104,10 @@ export default function LogoMV({ className, height = 52, linkWrapper = true, var
       src="/logo-mv.png"
       alt="María Victoria Real Estate"
       height={height}
-      width={height * 3.5}
+      width={height}
       priority
       className={className}
-      style={{ height: `${height}px`, width: "auto", objectFit: "contain" }}
+      style={{ height: `${height}px`, width: `${height}px`, objectFit: "contain" }}
       onError={() => setUsePNG(false)}
     />
   ) : (
