@@ -10,13 +10,24 @@ import { useGSAP } from "@gsap/react";
 import { MessageCircle, Send, CheckCircle } from "lucide-react";
 import { submitContact } from "@/lib/supabase/actions";
 import { getWhatsAppUrl } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const intentOptions = [
+  { value: "vender",  label: "Quiero vender mi propiedad" },
+  { value: "alquilar_mia", label: "Quiero alquilar mi propiedad" },
+  { value: "comprar", label: "Busco una propiedad para comprar" },
+  { value: "alquilar", label: "Busco una propiedad para alquilar" },
+] as const;
+
+type Intent = typeof intentOptions[number]["value"];
 
 const schema = z.object({
   name: z.string().min(2, "Nombre requerido"),
   email: z.string().email("Email inválido"),
   phone: z.string().optional(),
+  intent: z.string().optional(),
   message: z.string().min(10, "Contanos un poco más (mínimo 10 caracteres)"),
 });
 
@@ -26,10 +37,12 @@ export default function ContactSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [sent, setSent] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [selectedIntent, setSelectedIntent] = useState<Intent | "">("");
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({ resolver: zodResolver(schema) });
@@ -52,12 +65,19 @@ export default function ContactSection() {
     });
   }, { scope: containerRef });
 
+  const handleIntentClick = (val: Intent) => {
+    const next = selectedIntent === val ? "" : val;
+    setSelectedIntent(next);
+    setValue("intent", next);
+  };
+
   const onSubmit = async (data: FormData) => {
     setServerError("");
-    const result = await submitContact(data);
+    const result = await submitContact({ ...data, intent: selectedIntent || undefined });
     if (result.success) {
       setSent(true);
       reset();
+      setSelectedIntent("");
     } else {
       setServerError(result.error || "Error al enviar.");
     }
@@ -69,7 +89,7 @@ export default function ContactSection() {
   const labelClass = "font-sans text-[10px] tracking-[0.15em] uppercase text-navy/50 mb-2 block";
 
   return (
-    <section id="contacto" ref={containerRef} className="section-py bg-cream">
+    <section id="contacto" ref={containerRef} className="py-16 md:py-20 bg-cream">
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left — text */}
@@ -90,18 +110,18 @@ export default function ContactSection() {
               Hablemos. Contame qué necesitás y encontramos juntos la mejor forma de avanzar.
             </p>
 
-            {/* WhatsApp */}
+            {/* WhatsApp — gold */}
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-4 bg-[#25D366] text-white font-sans text-sm font-medium tracking-wide hover:bg-[#20bc5a] transition-colors duration-300"
+              className="inline-flex items-center gap-3 px-6 py-4 bg-gold text-white font-sans text-sm font-medium tracking-wide hover:bg-gold/90 transition-colors duration-300"
             >
               <MessageCircle size={18} />
               Escribir por WhatsApp
             </a>
 
-            {/* Zones reminder */}
+            {/* Zones */}
             <div className="pt-4 border-t border-navy/10">
               <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-3">
                 Zonas de operación
@@ -131,7 +151,30 @@ export default function ContactSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-7" noValidate>
+
+                {/* Intent selector */}
+                <div>
+                  <label className={labelClass}>¿En qué puedo ayudarte?</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                    {intentOptions.map((opt) => (
+                      <button
+                        type="button"
+                        key={opt.value}
+                        onClick={() => handleIntentClick(opt.value)}
+                        className={cn(
+                          "text-left px-4 py-3 border font-sans text-xs transition-all duration-200",
+                          selectedIntent === opt.value
+                            ? "border-gold bg-gold/10 text-navy"
+                            : "border-navy/15 text-cool-gray hover:border-navy/40"
+                        )}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Name */}
                 <div>
                   <label htmlFor="contact-name" className={labelClass}>Nombre *</label>
@@ -188,7 +231,7 @@ export default function ContactSection() {
                     className={`${inputClass} resize-none`}
                   />
                   {errors.message && (
-                    <p className="font-sans text-xs text-red-500 mt-1">{errors.message.message}</p>
+                    <p role="alert" className="font-sans text-xs text-red-500 mt-1">{errors.message.message}</p>
                   )}
                 </div>
 
@@ -201,14 +244,7 @@ export default function ContactSection() {
                   disabled={isSubmitting}
                   className="flex items-center gap-3 px-8 py-4 bg-navy text-cream font-sans text-sm tracking-[0.08em] uppercase hover:bg-navy/80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      Enviar mensaje
-                      <Send size={15} />
-                    </>
-                  )}
+                  {isSubmitting ? "Enviando..." : <><Send size={15} /> Enviar mensaje</>}
                 </button>
               </form>
             )}

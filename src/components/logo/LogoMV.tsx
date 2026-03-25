@@ -32,8 +32,9 @@ export default function LogoMV({ className, height = 52, linkWrapper = true }: L
       src="/logo-mv.png"
       alt="Maria Victoria Real Estate"
       height={height}
-      width={height * 1.6}
+      width={height * 3.5}
       className={cn("object-contain", className)}
+      style={{ mixBlendMode: "lighten" }}
       priority
       onError={() => setError(true)}
     />

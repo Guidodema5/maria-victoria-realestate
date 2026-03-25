@@ -17,8 +17,24 @@ export default function CustomCursor() {
     const ring = ringRef.current;
     if (!dot || !ring) return;
 
+    let started = false;
+
     const onMouseMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
+      if (!started) {
+        started = true;
+        dot.style.opacity = "1";
+        ring.style.opacity = "1";
+        ringPos.current = { x: e.clientX, y: e.clientY };
+      }
+    };
+
+    const onMouseDown = () => {
+      dot.style.transform = `translate(${pos.current.x - 4}px, ${pos.current.y - 4}px) scale(0.5)`;
+      ring.style.transform = `translate(${ringPos.current.x - 20}px, ${ringPos.current.y - 20}px) scale(0.5)`;
+    };
+    const onMouseUp = () => {
+      dot.style.transform = `translate(${pos.current.x - 4}px, ${pos.current.y - 4}px) scale(1)`;
     };
 
     const onMouseEnterLink = () => {
@@ -55,8 +71,14 @@ export default function CustomCursor() {
       raf.current = requestAnimationFrame(animate);
     };
 
+    // Hide until first move
+    dot.style.opacity = "0";
+    ring.style.opacity = "0";
+
     raf.current = requestAnimationFrame(animate);
     window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mousedown", onMouseDown);
+    window.addEventListener("mouseup", onMouseUp);
 
     // Attach hover listeners to interactive elements
     const addListeners = () => {
@@ -79,6 +101,8 @@ export default function CustomCursor() {
     return () => {
       cancelAnimationFrame(raf.current);
       window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mousedown", onMouseDown);
+      window.removeEventListener("mouseup", onMouseUp);
       observer.disconnect();
     };
   }, []);

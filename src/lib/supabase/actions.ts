@@ -15,6 +15,7 @@ export async function submitContact(
       phone: data.phone?.trim() || null,
       message: data.message.trim(),
       property_id: data.property_id || null,
+      ...(data.intent ? { intent: data.intent } : {}),
     },
   ]);
 

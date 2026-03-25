@@ -71,10 +71,10 @@ export default function FocusSection() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="section-py bg-navy overflow-hidden">
+    <section ref={containerRef} className="py-16 md:py-20 bg-navy overflow-hidden">
       <div className="container-site">
         {/* Main headline */}
-        <div className="mb-16 md:mb-24 text-center">
+        <div className="mb-12 md:mb-16 text-center">
           <h2
             className="focus-headline font-serif text-cream leading-tight"
             style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
@@ -87,7 +87,7 @@ export default function FocusSection() {
 
         {/* Divider */}
         <div
-          className="focus-divider h-px bg-cream/10 mb-16 md:mb-24 origin-left"
+          className="focus-divider h-px bg-cream/10 mb-12 md:mb-16 origin-left"
           style={{ transformOrigin: "left" }}
         />
 

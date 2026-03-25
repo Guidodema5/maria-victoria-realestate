@@ -82,19 +82,27 @@ export default function PropertyCard({ property, priority = false, className }: 
           </span>
         </div>
 
-        {/* Type + Rooms */}
+        {/* Type + Rooms + Surface */}
         <p className="font-sans text-[10px] tracking-[0.1em] uppercase text-navy/40 mb-2">
           {PROPERTY_TYPE_LABELS[property.type]}
           {property.rooms ? ` · ${property.rooms} amb.` : ""}
+          {property.total_surface ? ` · ${property.total_surface} m²` : ""}
         </p>
 
         {/* Title */}
-        <h3 className="font-serif text-lg text-navy leading-snug mb-4 group-hover:text-navy/80 transition-colors duration-300 line-clamp-2">
+        <h3 className="font-serif text-lg text-navy leading-snug mb-2 group-hover:text-navy/80 transition-colors duration-300 line-clamp-2">
           {property.title}
         </h3>
 
+        {/* Short description */}
+        {property.description && (
+          <p className="font-sans text-xs text-cool-gray leading-relaxed mb-3 line-clamp-1">
+            {property.description.slice(0, 70)}
+          </p>
+        )}
+
         {/* Price */}
-        <p className="font-serif text-gold font-semibold text-xl">
+        <p className="font-serif text-gold font-semibold text-xl mt-auto">
           {formatPrice(property.price, property.currency)}
         </p>
       </div>

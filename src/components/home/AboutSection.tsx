@@ -97,7 +97,7 @@ export default function AboutSection() {
     <section
       id="sobre-mi"
       ref={containerRef}
-      className="section-py bg-cream"
+      className="py-16 md:py-20 bg-cream"
     >
       <div className="container-site">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -154,14 +154,6 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Coldwell Banker affiliation */}
-            <div className="about-text-item flex items-center gap-4 py-4 border-t border-b border-navy/10">
-              <span className="font-sans text-[10px] tracking-[0.15em] uppercase text-cool-gray">
-                Asociada a
-              </span>
-              <LogoColdwell height={40} />
-            </div>
-
             {/* Differentials */}
             <div className="differentials-grid grid grid-cols-1 sm:grid-cols-2 gap-6">
               {differentials.map((item) => (
@@ -175,6 +167,17 @@ export default function AboutSection() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Coldwell Banker affiliation — al pie */}
+            <div className="about-text-item pt-6 border-t border-navy/10 flex items-center gap-4">
+              <div className="flex-shrink-0 bg-navy px-3 py-2 flex items-center justify-center rounded-sm">
+                <LogoColdwell height={28} />
+              </div>
+              <span className="font-sans text-xs text-cool-gray leading-snug">
+                Asociada a<br />
+                <strong className="text-navy font-medium">Coldwell Banker Wings</strong>
+              </span>
             </div>
           </div>
         </div>

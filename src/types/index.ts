@@ -75,6 +75,7 @@ export interface ContactFormData {
   phone?: string;
   message: string;
   property_id?: string;
+  intent?: string;
 }
 
 // ============================================================

@@ -70,16 +70,15 @@ export default function HeroSection() {
             className="hero-title font-serif text-cream leading-[1.06] mb-6 opacity-0"
             style={{ fontSize: "clamp(2.2rem, 5vw, 5rem)" }}
           >
-            Comprá o alquilá<br />
-            <span className="text-gold">propiedades</span><br />
-            en Buenos Aires.
+            El valor de una propiedad<br />
+            <span className="text-gold">está en cómo se percibe.</span>
           </h1>
 
           {/* Descripción */}
           <p className="hero-desc font-sans text-cream/60 leading-relaxed mb-8 opacity-0"
             style={{ fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)" }}>
-            Especialista en zona norte y oeste. Dirección fotográfica<br className="hidden sm:block" />
-            profesional incluida para maximizar el valor percibido.
+            Especialista en real estate y dirección fotográfica profesional.<br className="hidden sm:block" />
+            Zona norte y oeste de Buenos Aires.
           </p>
 
           {/* Zonas */}
