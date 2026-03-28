@@ -8,6 +8,7 @@ export async function getFeaturedProperties(): Promise<Property[]> {
     .select(`*, property_images(*)`)
     .eq("featured", true)
     .eq("status", "activa")
+    .order("sort_order", { ascending: true, nullsFirst: false })
     .order("created_at", { ascending: false })
     .limit(3);
 
@@ -24,6 +25,7 @@ export async function getProperties(filters: PropertyFilters = {}): Promise<Prop
     .from("properties")
     .select(`*, property_images(*)`)
     .eq("status", "activa")
+    .order("sort_order", { ascending: true, nullsFirst: false })
     .order("created_at", { ascending: false });
 
   if (filters.operation) query = query.eq("operation", filters.operation);

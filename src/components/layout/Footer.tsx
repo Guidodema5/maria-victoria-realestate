@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import LogoMV from "@/components/logo/LogoMV";
 import LogoColdwell from "@/components/logo/LogoColdwell";
 
@@ -12,9 +12,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pb-12 border-b border-cream/10">
           {/* Brand */}
           <div className="space-y-5">
-            <LogoMV height={80} />
+            <LogoMV height={100} />
             <p className="font-sans text-sm leading-relaxed text-cream/50 max-w-xs">
-              Especialista en real estate y fotógrafa profesional. Zona oeste y norte de Buenos Aires.
+              Especialista en real estate y fotógrafa profesional. Zona oeste, norte y CABA de Buenos Aires.
             </p>
             <div className="flex items-center gap-3 pt-1">
               <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-cream/30">Asociada a</span>
@@ -47,15 +47,31 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold">Zonas de operación</p>
             <div className="space-y-2 text-sm text-cream/60 font-sans">
-              <p>San Diego · Zona Oeste</p>
-              <p>Lagoon Pilar · Zona Norte</p>
-              <p>Nordelta · Zona Norte</p>
-              <p>Morón · AMBA</p>
-              <p>CABA</p>
+              <p>Country Banco Provincia</p>
+              <p>Terravista</p>
+              <p>Campos de Alvarez</p>
+              <p>Haras María Eugenia</p>
+              <p>Parque Leloir</p>
             </div>
-            <div className="flex items-center gap-4 pt-2">
+            <div className="space-y-2 pt-2 text-sm font-sans">
               <a
-                href="https://instagram.com"
+                href="https://wa.me/5491133616566"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-cream/50 hover:text-gold transition-colors duration-300"
+              >
+                +54 9 11 3361-6566
+              </a>
+              <a
+                href="mailto:victoria.gazzo@coldwellbanker.com.ar"
+                className="block text-cream/50 hover:text-gold transition-colors duration-300 break-all"
+              >
+                victoria.gazzo@coldwellbanker.com.ar
+              </a>
+            </div>
+            <div className="flex items-center gap-4 pt-1">
+              <a
+                href="https://www.instagram.com/victoriagazzorealestate"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-cream/40 hover:text-gold transition-colors duration-300"
@@ -64,13 +80,11 @@ export default function Footer() {
                 <Instagram size={18} />
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:victoria.gazzo@coldwellbanker.com.ar"
                 className="text-cream/40 hover:text-gold transition-colors duration-300"
-                aria-label="LinkedIn"
+                aria-label="Email"
               >
-                <Linkedin size={18} />
+                <Mail size={18} />
               </a>
             </div>
           </div>

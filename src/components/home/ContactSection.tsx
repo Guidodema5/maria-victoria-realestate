@@ -127,7 +127,7 @@ export default function ContactSection() {
                 Zonas de operación
               </p>
               <p className="font-sans text-sm text-cool-gray">
-                San Diego · Lagoon Pilar · Nordelta · Morón · CABA
+                Country Banco Provincia · Terravista · Campos de Alvarez · Haras Mª Eugenia · Parque Leloir
               </p>
             </div>
           </div>

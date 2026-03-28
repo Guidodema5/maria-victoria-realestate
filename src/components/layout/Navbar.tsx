@@ -46,7 +46,7 @@ export default function Navbar() {
       >
         <div className="container-site flex items-center justify-between">
           {/* Logo */}
-          <LogoMV height={112} />
+          <LogoMV height={136} />
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">

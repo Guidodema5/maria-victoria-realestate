@@ -81,6 +81,7 @@ const jsonLd = {
         "Especialista en real estate premium y dirección fotográfica. Zona norte y oeste de Buenos Aires.",
       url: siteUrl,
       telephone: "+5491133616566",
+      email: "victoria.gazzo@coldwellbanker.com.ar",
       image: `${siteUrl}/maria-victoria.jpg`,
       logo: `${siteUrl}/logo-mv.png`,
       address: {
@@ -89,19 +90,18 @@ const jsonLd = {
         addressCountry: "AR",
       },
       areaServed: [
-        { "@type": "Place", name: "San Diego, Buenos Aires" },
-        { "@type": "Place", name: "Lagoon Pilar, Buenos Aires" },
-        { "@type": "Place", name: "Nordelta, Buenos Aires" },
-        { "@type": "Place", name: "Morón, Buenos Aires" },
-        { "@type": "Place", name: "CABA, Buenos Aires" },
+        { "@type": "Place", name: "Country Banco Provincia, Buenos Aires" },
+        { "@type": "Place", name: "Terravista, Buenos Aires" },
+        { "@type": "Place", name: "Campos de Alvarez, Buenos Aires" },
+        { "@type": "Place", name: "Haras María Eugenia, Buenos Aires" },
+        { "@type": "Place", name: "Parque Leloir, Buenos Aires" },
       ],
       memberOf: {
         "@type": "Organization",
         name: "Coldwell Banker Wings",
       },
       sameAs: [
-        "https://instagram.com",
-        "https://linkedin.com",
+        "https://www.instagram.com/victoriagazzorealestate",
       ],
     },
     {

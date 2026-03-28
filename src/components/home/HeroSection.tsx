@@ -73,7 +73,7 @@ export default function HeroSection() {
             <p className="hero-sub font-sans text-cream/60 opacity-0 mb-8 leading-relaxed"
               style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}>
               Especialista en real estate y dirección fotográfica profesional.<br className="hidden sm:block" />
-              Zona norte y oeste de Buenos Aires.
+              Zona norte, oeste y CABA de Buenos Aires.
             </p>
 
             {/* CTAs */}
@@ -98,7 +98,7 @@ export default function HeroSection() {
 
             {/* Zones */}
             <div className="hero-zones opacity-0 flex flex-wrap gap-x-4 gap-y-1.5 pt-6 border-t border-cream/10">
-              {["San Diego", "Lagoon Pilar", "Nordelta", "Morón", "CABA"].map((z) => (
+              {["Cto. Banco Provincia", "Terravista", "Campos de Alvarez", "Haras Mª Eugenia", "Parque Leloir"].map((z) => (
                 <span key={z} className="inline-flex items-center gap-1.5 font-sans text-[10px] text-cream/35 tracking-wide">
                   <MapPin size={9} className="text-gold/50" />
                   {z}

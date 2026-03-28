@@ -36,6 +36,7 @@ export interface Property {
   description: string | null;
   featured: boolean;
   status: PropertyStatus;
+  sort_order: number | null;
   created_at: string;
   updated_at: string;
   // Joined
@@ -103,6 +104,11 @@ export const PROPERTY_STATUS_LABELS: Record<PropertyStatus, string> = {
 };
 
 export const ZONES = [
+  'Country Banco Provincia',
+  'Terravista',
+  'Campos de Alvarez',
+  'Haras María Eugenia',
+  'Parque Leloir',
   'San Diego, Zona Oeste',
   'Lagoon Pilar, Zona Norte',
   'Nordelta, Zona Norte',
