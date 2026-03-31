@@ -40,7 +40,7 @@ export function getMainImage(images: { url: string; is_main: boolean }[] | undef
 
 // URL de WhatsApp con mensaje predefinido
 export function getWhatsAppUrl(propertyTitle?: string): string {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491133616566';
+  const number = '5491133616566';
   const message = propertyTitle
     ? `Hola María Victoria, me interesa la propiedad: "${propertyTitle}". ¿Podemos hablar?`
     : 'Hola María Victoria, me gustaría recibir más información sobre sus propiedades.';

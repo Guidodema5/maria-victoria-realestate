@@ -38,13 +38,13 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-400",
+          "fixed top-0 left-0 right-0 z-50 h-[70px] flex items-center transition-all duration-400",
           scrolled
-            ? "bg-navy shadow-[0_2px_20px_rgba(0,0,0,0.3)] py-0"
-            : "bg-navy/90 backdrop-blur-md py-0"
+            ? "bg-navy shadow-[0_2px_20px_rgba(0,0,0,0.3)]"
+            : "bg-navy/90 backdrop-blur-md"
         )}
       >
-        <div className="container-site flex items-center justify-between">
+        <div className="container-site w-full flex items-center justify-between">
           {/* Logo */}
           <LogoMV height={120} />
 
