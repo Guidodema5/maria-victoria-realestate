@@ -86,7 +86,7 @@ export default function HeroSection() {
                 <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <a
-                href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5491133616566"}`}
+                href="https://wa.me/5491133616566"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-cta opacity-0 inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-cream/25 text-cream/80 font-sans text-[11px] font-medium tracking-[0.14em] uppercase hover:border-cream/60 hover:text-cream active:scale-95 transition-all duration-300"
