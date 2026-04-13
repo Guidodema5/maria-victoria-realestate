@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LogoMV from "@/components/logo/LogoMV";
+import LogoColdwell from "@/components/logo/LogoColdwell";
 
 const links = [
   { href: "/venta", label: "En Venta" },
@@ -46,7 +47,11 @@ export default function Navbar() {
       >
         <div className="container-site w-full flex items-center justify-between">
           {/* Logo */}
-          <LogoMV height={120} />
+          <div className="flex items-center gap-2.5">
+            <LogoMV height={120} />
+            <span className="w-px h-5 bg-cream/20 mx-0.5" />
+            <LogoColdwell height={30} className="opacity-70 hover:opacity-100 transition-opacity duration-300" />
+          </div>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-10">
