@@ -50,7 +50,9 @@ export default function Navbar() {
           <div className="flex items-center gap-2.5">
             <LogoMV height={120} />
             <span className="w-px h-5 bg-cream/20 mx-0.5" />
-            <LogoColdwell height={30} className="opacity-70 hover:opacity-100 transition-opacity duration-300" />
+            <div style={{ mixBlendMode: "screen" }} className="opacity-80 hover:opacity-100 transition-opacity duration-300">
+              <LogoColdwell height={60} />
+            </div>
           </div>
 
           {/* Desktop nav */}
