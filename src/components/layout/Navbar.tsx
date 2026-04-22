@@ -16,10 +16,13 @@ const links = [
   { href: "/#contacto", label: "Contacto" },
 ];
 
+const LANDING_PATHS = ["/vender-mi-propiedad", "/invertir-en-propiedades"];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isLanding = LANDING_PATHS.some((p) => pathname?.startsWith(p));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -35,6 +38,30 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // ── Landing pages: simplified header ──────────────────────────────
+  if (isLanding) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 h-[70px] flex items-center bg-navy shadow-[0_2px_20px_rgba(0,0,0,0.3)]">
+        <div className="container-site w-full flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
+            <LogoMV height={110} />
+            <span className="w-px h-5 bg-cream/20 mx-0.5" />
+            <LogoColdwell height={52} className="opacity-75 hover:opacity-100 transition-opacity duration-300" />
+          </Link>
+          <a
+            href="https://wa.me/5491133616566"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 border border-gold/40 text-gold font-sans text-[11px] tracking-[0.12em] uppercase hover:bg-gold hover:text-obsidian transition-all duration-300"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </header>
+    );
+  }
+
+  // ── Full navbar ────────────────────────────────────────────────────
   return (
     <>
       <header

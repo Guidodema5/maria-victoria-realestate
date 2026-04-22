@@ -1,10 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Instagram, Mail } from "lucide-react";
 import LogoMV from "@/components/logo/LogoMV";
 import LogoColdwell from "@/components/logo/LogoColdwell";
 
+const LANDING_PATHS = ["/vender-mi-propiedad", "/invertir-en-propiedades"];
+
 export default function Footer() {
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  // Landing pages include their own minimal footer
+  if (LANDING_PATHS.some((p) => pathname?.startsWith(p))) return null;
 
   return (
     <footer className="bg-navy text-cream/70">
